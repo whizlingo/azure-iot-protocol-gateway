@@ -42,10 +42,6 @@
       <HintPath>..\..\packages\DotNetty.Codecs-signed.0.2.3\lib\net45\DotNetty.Codecs.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DotNetty.Codecs.Mqtt, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e7a0210a354f294a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DotNetty.Codecs.Mqtt-signed.0.2.3\lib\net45\DotNetty.Codecs.Mqtt.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DotNetty.Common, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e7a0210a354f294a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetty.Common-signed.0.2.3\lib\net45\DotNetty.Common.dll</HintPath>
       <Private>True</Private>
@@ -150,6 +146,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DotNetty\DotNetty.Codecs.Mqtt\DotNetty.Codecs.Mqtt.csproj">
+      <Project>{58ffea83-c956-49f9-9435-18332ad0e0d1}</Project>
+      <Name>DotNetty.Codecs.Mqtt</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProtocolGateway.Host.Common\ProtocolGateway.Host.Common.csproj">
       <Project>{5bc6e03a-7516-4aab-8191-1e187b8ee995}</Project>
       <Name>ProtocolGateway.Host.Common</Name>

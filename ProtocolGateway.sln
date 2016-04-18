@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "host", "host", "{9F27B381-3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolGateway.Providers.CloudStorage", "src\ProtocolGateway.Providers.CloudStorage\ProtocolGateway.Providers.CloudStorage.csproj", "{AC34C945-61DE-4700-BD42-2B19A441B4C3}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "ProtocolGateway.Host.Cloud", "host\ProtocolGateway.Host.Cloud\ProtocolGateway.Host.Cloud.ccproj", "{67816602-2130-47E2-82C7-ECC315797625}"
+Project("{144C61F1-A867-3419-B8C6-78D127253265}") = "ProtocolGateway.Host.Cloud", "host\ProtocolGateway.Host.Cloud\ProtocolGateway.Host.Cloud.ccproj", "{67816602-2130-47E2-82C7-ECC315797625}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{0CED177C-7897-45DF-8328-5F14ED8A0E5C}"
 	ProjectSection(SolutionItems) = preProject
@@ -34,6 +34,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolGateway.IotHubClient", "src\ProtocolGateway.IotHubClient\ProtocolGateway.IotHubClient.csproj", "{4CE6905A-3978-4328-8281-7022CFA9A3A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolGateway.Host.Cloud.Service", "host\ProtocolGateway.Host.Cloud.Service\ProtocolGateway.Host.Cloud.Service.csproj", "{9CD3E054-23AD-41A2-93B5-31A7A8CFB1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetty.Codecs.Mqtt", "DotNetty\DotNetty.Codecs.Mqtt\DotNetty.Codecs.Mqtt.csproj", "{58FFEA83-C956-49F9-9435-18332AD0E0D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dotnetty", "Dotnetty", "{659B9E9B-6BD6-4B50-9574-AC1B62A4BA1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,10 @@ Global
 		{9CD3E054-23AD-41A2-93B5-31A7A8CFB1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD3E054-23AD-41A2-93B5-31A7A8CFB1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CD3E054-23AD-41A2-93B5-31A7A8CFB1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58FFEA83-C956-49F9-9435-18332AD0E0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FFEA83-C956-49F9-9435-18332AD0E0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FFEA83-C956-49F9-9435-18332AD0E0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FFEA83-C956-49F9-9435-18332AD0E0D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +100,6 @@ Global
 		{BE074EB4-C7AB-42D4-8841-29117CC44983} = {704AB71A-852A-4B00-8016-9B415DFD9375}
 		{4CE6905A-3978-4328-8281-7022CFA9A3A1} = {40E01D4A-EFB5-4BE5-A267-0C0DD70F0C75}
 		{9CD3E054-23AD-41A2-93B5-31A7A8CFB1CF} = {9F27B381-3559-42D0-9EDE-0637E02ADFC8}
+		{58FFEA83-C956-49F9-9435-18332AD0E0D1} = {659B9E9B-6BD6-4B50-9574-AC1B62A4BA1A}
 	EndGlobalSection
 EndGlobal

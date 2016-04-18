@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BC6E03A-7516-4AAB-8191-1E187B8EE995}</ProjectGuid>
+    <ProjectGuid>{58FFEA83-C956-49F9-9435-18332AD0E0D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProtocolGateway.Host.Common</RootNamespace>
-    <AssemblyName>ProtocolGateway.Host.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>DotNetty.Codecs.Mqtt</RootNamespace>
+    <AssemblyName>DotNetty.Codecs.Mqtt</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +29,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Signed|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NOTEST</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetty.Buffers, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e7a0210a354f294a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetty.Buffers-signed.0.2.3\lib\net45\DotNetty.Buffers.dll</HintPath>
@@ -43,54 +51,48 @@
       <HintPath>..\..\packages\DotNetty.Common-signed.0.2.3\lib\net45\DotNetty.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DotNetty.Handlers, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e7a0210a354f294a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DotNetty.Handlers-signed.0.2.3\lib\net45\DotNetty.Handlers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DotNetty.Transport, Version=0.2.3.0, Culture=neutral, PublicKeyToken=e7a0210a354f294a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\DotNetty.Transport-signed.0.2.3\lib\net45\DotNetty.Transport.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Azure.Amqp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Azure.Amqp.1.0.0\lib\net451\Microsoft.Azure.Amqp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Devices.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Azure.Devices.Client.1.0.2\lib\net45\Microsoft.Azure.Devices.Client.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Devices.ProtocolGateway.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Azure.Devices.ProtocolGateway.Core.1.0.0\lib\net451\Microsoft.Azure.Devices.ProtocolGateway.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Devices.ProtocolGateway.IotHubClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Azure.Devices.ProtocolGateway.IotHubClient.1.0.0\lib\net451\Microsoft.Azure.Devices.ProtocolGateway.IotHubClient.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="BootstrapperEventSource.cs" />
-    <Compile Include="MqttPacketPayloadCompressionHandler.cs" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Properties\Friends.cs" />
+    <Compile Include="MqttDecoder.cs" />
+    <Compile Include="MqttEncoder.cs" />
+    <Compile Include="Packets\ConnAckPacket.cs" />
+    <Compile Include="Packets\ConnectPacket.cs" />
+    <Compile Include="Packets\ConnectReturnCode.cs" />
+    <Compile Include="Packets\DisconnectPacket.cs" />
+    <Compile Include="Packets\Packet.cs" />
+    <Compile Include="Packets\PacketType.cs" />
+    <Compile Include="Packets\PacketWithId.cs" />
+    <Compile Include="Packets\PingReqPacket.cs" />
+    <Compile Include="Packets\PingRespPacket.cs" />
+    <Compile Include="Packets\PubAckPacket.cs" />
+    <Compile Include="Packets\PubCompPacket.cs" />
+    <Compile Include="Packets\PublishPacket.cs" />
+    <Compile Include="Packets\PubRecPacket.cs" />
+    <Compile Include="Packets\PubRelPacket.cs" />
+    <Compile Include="Packets\QualityOfService.cs" />
+    <Compile Include="Packets\SubAckPacket.cs" />
+    <Compile Include="Packets\SubscribePacket.cs" />
+    <Compile Include="Packets\SubscriptionRequest.cs" />
+    <Compile Include="Packets\UnsubAckPacket.cs" />
+    <Compile Include="Packets\UnsubscribePacket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Signatures.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\DotNetty\DotNetty.Codecs.Mqtt\DotNetty.Codecs.Mqtt.csproj">
-      <Project>{58ffea83-c956-49f9-9435-18332ad0e0d1}</Project>
-      <Name>DotNetty.Codecs.Mqtt</Name>
-    </ProjectReference>
+    <None Include="DotNetty.Codecs.Mqtt.nuspec" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
